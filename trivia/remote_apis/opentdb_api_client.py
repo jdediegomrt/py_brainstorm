@@ -38,14 +38,14 @@ def get_questions(amount, category):
     )
 
 
-def trivia_game(amount, category):
+def trivia_game_questions(amount, category):
     response = get_questions(amount, category)
     if response.json()['response_code'] == 3 or response.json()['response_code'] == 4:
         apiClient.refresh_token()
         return get_questions(amount, category)
-    return response
+    return response.json()
 
 
 def trivia_game_categories():
     response = requests.get('https://opentdb.com/api_category.php')
-    return response
+    return response.json()

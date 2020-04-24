@@ -4,6 +4,6 @@ from . import views
 
 app_name = 'trivia'
 urlpatterns = [
-    path('', views.trivia_game, name='trivia_game'),
+    path('questions', views.trivia_game_questions, name='trivia_game_questions'),
     path('categories', views.trivia_game_categories, name='trivia_game_categories'),
 ]
